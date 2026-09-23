@@ -1,7 +1,7 @@
 # CS 457 Project Statement of Work (SOW) & Protocol Specification Template
 
-**Student Name:** [Your Full Name]  
-**Date:** [YYYY-MM-DD]  
+**Student Name:** Nathaniel DeLeon
+**Date:** [2026-09-23]  
 **Course:** CS 457 - Computer Networks  
 **Target Server Domain:** `server.[yourlastname].edu`  
 
@@ -17,14 +17,14 @@
 > - You are encouraged to use python, but I'm not going to make it a strict requirement. The instructor and TA's ability to help with C or Rust, etc will be diminished in other languages.
 
 ### 1.1 Game Overview
-- **Chosen Game:** [e.g., Terminal Trivia, Tic-Tac-Toe, Connect Four, Battleship]
+- **Chosen Game:** Terminal-Duelz
 - **Player Capacity:** 2 Players (Simulated via 2 CML Client nodes)
-- **Game Summary:** [Briefly describe the gameplay mechanics and rules]
+- **Game Summary:** Terminal-Duelz is a two player turn-based console battle game. Each player starts with 100 health points (HP). Players take turns attacking each other. When a player attacks, the server generates a random amount of damage and removes that amount from the opponents health. The game continues until one players health reaches 0 HP or lower.
 
 ### 1.2 Core Game Rules & Win/Draw Conditions
-- **Turn Mechanics:** [Explain how turn order is enforced between Player 1 and Player 2]
-- **Victory Condition:** [Define how a player wins the game]
-- **Draw/Tie Condition:** [Define how a draw/tie is detected and handled]
+- **Turn Mechanics:** The first player connected is player 1 and the second being player 2. Player 1 takes the first turn. After an attack is processed, the turn switches to the other player. The server keeps track of whose turn it is and will only accept an attack from the active player. 
+- **Victory Condition:** A player reduces the opponents player health to 0 HP or an opponent closes the terminal (leaves).
+- **Draw/Tie Condition:** There isn't a draw condition. Because attacks are processed one turn at a time, it is not possible to reach 0 HP at the same time.
 
 ---
 
