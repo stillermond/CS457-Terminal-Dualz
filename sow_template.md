@@ -3,7 +3,7 @@
 **Student Name:** Nathaniel DeLeon
 **Date:** [2026-09-23]  
 **Course:** CS 457 - Computer Networks  
-**Target Server Domain:** `server.[yourlastname].edu`  
+**Target Server Domain:** `server.DeLeon.edu`  
 
 ---
 
