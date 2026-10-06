@@ -40,6 +40,12 @@ Used to tell the first player that the server is still waiting for Player 2.
   "message": "Waiting for Player 2."
 }
 
+Fields:
+
+msg_type: string
+
+message: string
+
 GAME_START
 
 Direction: Server -> Clients
@@ -55,6 +61,8 @@ Used when both players are connected and the game is ready to start.
 }
 
 Fields:
+
+msg_type : string 
 
 player_1: string
 
@@ -76,6 +84,14 @@ Used when the current player attacks.
   "action": "ATTACK"
 }
 
+Fields:
+
+msg_type: string
+
+player_id: string
+
+action: string
+
 The server will check if it is actually that player's turn before accepting it.
 
 STATE_UPDATE
@@ -91,6 +107,18 @@ Used after a valid attack so both players know the new health and whose turn is 
   "damage": 18,
   "active_player": "Player2"
 }
+
+Fields:
+
+msg_type: string
+
+player_1_health: integer
+
+player_2_health: integer
+
+damage: integer
+
+active_player: string
 
 ERROR
 
@@ -114,6 +142,14 @@ MALFORMED_MESSAGE
 
 GAME_FULL
 
+Fields:
+
+msg_type: string
+
+error_code: string
+
+message: string
+
 DISCONNECT
 
 Direction: Client -> Server
@@ -126,6 +162,12 @@ Used when a player quits normally.
 }
 
 If this happens during a game, the other player wins by forfeit.
+
+Fields:
+
+msg_type: string
+
+player_id: string
 
 GAME_OVER
 
@@ -141,10 +183,18 @@ Used when the game ends.
 
 The reason could be HEALTH_ZERO or OPPONENT_DISCONNECTED.
 
+Fields:
+
+msg_type: string
+
+winner: string
+
+reason: string
+
 Connection Ending
 
 If a player quits normally, they should send DISCONNECT before closing the socket.
-
+A normal socket close uses TCP FIN. If the client crashes or the connection is suddenly lost, the server may receive a TCP RST or a socket error. A network drop is treated as an unexpected disconnect.
 If the connection closes normally, recv() can return no data:
 
 data = sock.recv(1024)
