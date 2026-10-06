@@ -20,6 +20,7 @@ CLEANUP
 
 State Diagram
 
+```mermaid
 stateDiagram-v2
     [*] --> INIT
     INIT --> WAITING_FOR_PLAYERS: Server starts
@@ -41,7 +42,7 @@ stateDiagram-v2
 
     GAME_OVER --> CLEANUP: Send GAME_OVER
     CLEANUP --> WAITING_FOR_PLAYERS: Reset game
-
+```
 What Each State Does
 
 INIT
