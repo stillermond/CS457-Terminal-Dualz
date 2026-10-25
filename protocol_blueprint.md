@@ -105,7 +105,9 @@ Used after a valid attack so both players know the new health and whose turn is 
   "player_1_health": 100,
   "player_2_health": 82,
   "damage": 18,
-  "active_player": "Player2"
+  "active_player": "Player2",
+  "player_1_score": 0,
+  "player_2_score": 0
 }
 
 Fields:
@@ -119,6 +121,10 @@ player_2_health: integer
 damage: integer
 
 active_player: string
+
+player_1_score: integer
+
+player_2_score: integer
 
 ERROR
 
